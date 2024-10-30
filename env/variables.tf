@@ -6,12 +6,13 @@ variable "cluster_name" {
 variable "k8s_version" {
   type        = string
   description = "kubernetes version"
-  default     = "1.27"
+  default     = "1.31.1-gke.2008000"
 }
 
 variable "region" {
   type        = string
   description = "gcp region where the gke cluster must be created, this region should match where you have created the vpc and subnet"
+  default     = "us-east4"
 }
 
 variable "cidrBlock" {
@@ -36,4 +37,16 @@ variable "nodepools" {
       node_count   = 1
     }
   }
+}
+
+variable "mongo_machine_type" {
+  type        = string
+  description = "machine type for mongo instance"
+  default = "e2-standard-2"
+}
+
+variable "mongo_db_instance" {
+  type        = string
+  description = "name of mongo db vm instance"
+  default = "mongo-db-1"
 }
